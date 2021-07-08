@@ -2,31 +2,22 @@
 
 {% block content %}
 
-    <style>
+    <div  style='margin: 2rem; text-align: center'>
+        <h1>METHOD</h1>
 
-        .testing {
-            background-color: yellow;
-            height: 48px;
-            width: 48px;
-            margin: 1rem;
-            border-radius: .5rem;
-            display: inline-block
-        }
+        <form action="/accounts/Hello_world/" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-warning rounded-fill px-5">
+        </form>
 
-
-    </style>
-
-    <div  style="height: 20rem; background-color: aqua; m
-    argin: 2rem; border-radius: 1rem; font-size: 2rem;
-    overflow: scroll">
-        <h1>Test</h1>
-
-    <div class="testing" style="height: 48px; width: 48px;"></div>
-    <div class="testing" style="height: 3rem; width: 3rem;"></div>
-    <div class="testing" style="height: 3em; width: 3em;"></div>
-    <div class="testing" style="height: 30%; width: 30%;"></div>
-
+        <h3>{{ text }}</h3>
     </div>
 
 
 {% endblock %}
+
+
+# http protocol.
+# GET, POST는 html의 매서드이다.
+# GET(inquiry)은 쿼리 데이터를 넘겨준다.
+# POST(create, updata)는 추가적인 데이터를 넘겨줄 때 바디 안에 넣어서 서버에 넘겨준다.
