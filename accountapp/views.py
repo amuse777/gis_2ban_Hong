@@ -21,4 +21,4 @@ def Hello_world(request):
     else:
         data_list = HelloWorld.objects.all()
         return render(request, 'accountapp/hello_world.html',
-                      context={'data_list':'data_list'})
+                      context={'data_list': data_list})
