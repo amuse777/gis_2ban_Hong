@@ -5,10 +5,8 @@ from django.shortcuts import render
 
 # Create your views here.
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DetailView
-
+from django.views.generic import CreateView, DetailView, UpdateView
 from accountapp.models import HelloWorld
-
 
 def Hello_world(request):
     if request.method == 'POST':
@@ -26,7 +24,6 @@ def Hello_world(request):
         return render(request, 'accountapp/hello_world.html',
                       context={'data_list': data_list})
 
-
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
@@ -34,10 +31,16 @@ class AccountCreateView(CreateView):
     template_name = 'accountapp/Create.html'
 
     #django에서 기본으로 제공하는 것이 Class, Base, View다.
-
     #Create - Read - Update - Delete
 
 class AccountDetailView(DetailView):
     model = User
     context_object_name = 'target_user'
     template_name = 'accountapp/detail.html'
+
+class AccountUpdateView(UpdateView):
+    model = User
+    form_class = UserCreationForm
+    context_object_name = 'target_user'
+    success_url = reverse_lazy('accountapp:hello_world')
+    template_name = 'accountapp/update.html'
