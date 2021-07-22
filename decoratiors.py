@@ -15,7 +15,7 @@
 
 def decorator(func):
     def decorated(hei, based):
-        if hei > 0 and based > 0:
+        if hei >= 0 and based >= 0:
             return func(hei, based)
         else:
             return ValueError('No!')
@@ -24,11 +24,11 @@ def decorator(func):
 
 @ decorator
 def tri_area(hei, based):
-    print(hei * based / 2)
+    return hei * based / 2
 
 @ decorator
 def squ_area(hei, based):
-    print(hei * based)
+    return hei * based
 
 tri_area(10, 10)
 squ_area(3, 4)
