@@ -41,7 +41,7 @@ class AccountCreateView(CreateView):
     def get_success_url(self):
         return reverse('accountapp:detail', kwargs={'pk': self.object.pk})
 
-# django에서 기본으로 제공하는 것이 Class, Base, View다.
+# django 에서 기본으로 제공하는 것이 Class, Base, View 다.
 # Create - Read - Update - Delete
 
 
