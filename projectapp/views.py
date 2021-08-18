@@ -1,3 +1,5 @@
+from msilib.schema import ListView
+
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
@@ -27,3 +29,8 @@ class ProjectDetailView(DetailView):
     template_name = 'projectapp/detail.html'
 
 
+class ProjectListView(ListView):
+    model = Project
+    context_object_name = 'project_list'
+    template_name = 'projectapp/list.html'
+    paginate_name = 20
